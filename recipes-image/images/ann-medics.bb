@@ -1,6 +1,6 @@
 SUMMARY = "A small image just capable of allowing a device to boot with no gui and support eglfs "
 
-PROVIDES += "annMedics-image"
+PROVIDES += "ann-medics"
 
 
 ################################################################################
@@ -53,7 +53,7 @@ INIT_MANAGER = "systemd"
 #################################################
 #                   Networking
 #################################################
-#IMAGE_INSTALL += ""
+IMAGE_INSTALL += "wifi-start-script"
 
 
 
