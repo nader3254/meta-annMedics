@@ -1,0 +1,21 @@
+#!/bin/bash
+
+#/usr/bin/psplash 
+/etc/init.d/psplash.sh
+
+#PSPLASH_FIFO_DIR=/mnt/.psplash /usr/bin/psplash-write "MESSAGE  initializing system" 
+
+#PROGRESS=100
+
+for ((X=0; X<100; X++)) 
+do
+PSPLASH_FIFO_DIR=/mnt/.psplash  /usr/bin/psplash-write "PROGRESS ${X}" || true
+  sleep .001  
+#  echo  hello in  ${X} 
+done
+
+#/usr/bin/psplash-write SPLASH_MESSAGE "  system ready " 
+
+PSPLASH_FIFO_DIR=/mnt/.psplash /usr/bin/psplash-write "QUIT" || true
+
+umount -l /mnt/.psplash

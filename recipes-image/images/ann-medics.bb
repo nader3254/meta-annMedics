@@ -28,35 +28,49 @@ IMAGE_ROOTFS_SIZE ?= "8192"
 IMAGE_ROOTFS_EXTRA_SPACE_append = "${@bb.utils.contains("DISTRO_FEATURES", "systemd", " + 4096", "" ,d)}"
 
 
-#IMAGE_FSTYPES_remove = "ext4 wic.gz tar.bz2 tar.xz"
-#IMAGE_FSTYPES_append = " wic"
+IMAGE_FSTYPES_remove = "ext4 ext3 .manifest .json .bmap wic.gz wic.bz2 "
+IMAGE_FSTYPES_append = " wic "
 
 
 
 
 
+########################################################################
+#                       installing Systemd 
+#  will not working unless you copy the following lines to local.conf
+########################################################################
 
+#LICENSE_FLAGS_WHITELIST_append = " commercial_faad2"
+#VIRTUAL-RUNTIME_init_manager = "systemd"
+#VIRTUAL-RUNTIME_initscripts = "systemd-compat-units"
+#DISTRO_FEATURES_append = " systemd"
+#DISTRO_FEATURES_BACKFILL_CONSIDERED += "sysvinit"
+#INIT_MANAGER = "systemd"
 
+#########################################################################
+#                       installing Systvinit
+#   will not working unless you copy the following lines to local.conf
+#########################################################################
 
-
-
-###################################################
-#                installing Systemd
-###################################################
-
-LICENSE_FLAGS_WHITELIST_append = "commercial"
+#LICENSE_FLAGS_WHITELIST_append = "commercial"
 #INITRAMFS_FEATURES += "feature-ash"
 #DISTRO_FEATURES_append = " sysvinit"
 #DISTRO_FEATURES_BACKFILL_CONSIDERED = "sysvinit"
-INIT_MANAGER = "systemd"
+#INIT_MANAGER = "sysvinit"
 
 #################################################
 #                   Networking
 #################################################
+
 IMAGE_INSTALL += "wifi-start-script"
 
+#################################################
+#                   Splash 
+#################################################
 
-
+IMAGE_INSTALL_append = " psplash"
+IMAGE_FEATURES += " splash "
+IMAGE_INSTALL += "ann-medics-splash"
 
 
 
