@@ -8,7 +8,7 @@
 
 
 #        Starting my custom splash screen 
-./etc/init.d/splash
+/etc/init.d/splash
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin
 runlevel=S

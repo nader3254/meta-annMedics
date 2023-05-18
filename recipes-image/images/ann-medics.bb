@@ -62,15 +62,19 @@ IMAGE_FSTYPES_append = " wic "
 #                   Networking
 #################################################
 
+DISTRO_FEATURES_append += " wifi linux-firmware-bcm43430 linux-firmware-brcmfmac43430"
+IMAGE_INSTALL_append += "  linux-firmware-bcm43430  wpa-supplicant kernel-modules linux-firmware-rpidistro-bcm43430" 
+
 IMAGE_INSTALL += "wifi-start-script"
 
 #################################################
 #                   Splash 
 #################################################
 
+
 IMAGE_INSTALL_append = " psplash"
 IMAGE_FEATURES += " splash "
-IMAGE_INSTALL += "ann-medics-splash"
+IMAGE_INSTALL += "ann-medics-splash  ann-splash"
 
 
 

@@ -4,7 +4,7 @@
 /etc/init.d/psplash.sh
 
 #PSPLASH_FIFO_DIR=/mnt/.psplash /usr/bin/psplash-write "MESSAGE  initializing system" 
-
+#rm -rf /etc/rcS.d/S00psplash.sh
 #PROGRESS=100
 
 for ((X=0; X<100; X++)) 
@@ -19,3 +19,5 @@ done
 PSPLASH_FIFO_DIR=/mnt/.psplash /usr/bin/psplash-write "QUIT" || true
 
 umount -l /mnt/.psplash
+
+
