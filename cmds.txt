@@ -6,4 +6,4 @@ git branch -M main
 git remote add origin https://github.com/nader3254/meta-annMedics.git
 git push -u origin main
 
-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
+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
